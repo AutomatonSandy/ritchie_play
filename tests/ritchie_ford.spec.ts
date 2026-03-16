@@ -4,6 +4,7 @@ import {PageObjectManager} from '../pages/PageObjectManager';
 
 
 test('ritchie ford',async({page})=>{  
+   await page.screenshot({path: 'test-results/before-test.png'});
    const searchTerm = 'Ford F-150'; 
    const pageManager = new PageObjectManager(page);
    await pageManager.getTopPanel().searchOnTopPanel(searchTerm);
