@@ -1,8 +1,17 @@
 import{test,expect}from '../fixtures/BeforeAndAfterTest';
-import {TopPanel} from '../pages/TopPanel';    
+import {PageObjectManager} from '../pages/PageObjectManager';    
 
 
-test('ritchie ford',async({page})=>{   
-   const topPanel = new TopPanel(page);
-   await topPanel.searchOnTopPanel('Ford F-150');
+
+test('ritchie ford',async({page})=>{  
+   const searchTerm = 'Ford F-150'; 
+   const pageManager = new PageObjectManager(page);
+   await pageManager.getTopPanel().searchOnTopPanel(searchTerm);
+   const numberOfResults = await pageManager.getSearchResults().extractNumberOfResults();
+   console.log(`Number of results extracted: ${numberOfResults}`);
+   await expect(numberOfResults).toBeGreaterThan(0);
+   const firstResultTitle = await pageManager.getSearchResults().returnTheFirstResultTitle();
+   console.log(`First result title extracted: ${firstResultTitle}`);
+   await expect(firstResultTitle).toContain(searchTerm);
+
 })
