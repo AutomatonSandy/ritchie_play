@@ -28,13 +28,8 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('')`. */
      baseURL: 'https://www.rbauction.com/',
 
-    // Allow forcing headed mode from CI/Docker (requires Xvfb in Linux containers).
-    headless: process.env.HEADED === '1' ? false : undefined,
-
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    // Record videos to `test-results/`. Always keep them (audit/proof).
-    video: 'on',
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     ignoreHTTPSErrors: true,
   },
@@ -44,12 +39,6 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-    },
-
-    // Real Google Chrome (not bundled Chromium). Requires Chrome installed in the environment/container.
-    {
-      name: 'chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     },
 
     {
