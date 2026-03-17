@@ -3,9 +3,9 @@ import {PageObjectManager} from '../pages/PageObjectManager';
 
 
 
-test('ritchie ford related tests @ford @smoke',async({page})=>{  
+test('ritchie chevy related tests @chevy @smoke',async({page})=>{  
    await page.screenshot({path: 'test-results/before-test.png'});
-   const searchTerm = 'Ford F-150'; 
+   const searchTerm = 'Chevrolet Colorado'; 
    const pageManager = new PageObjectManager(page);
    await pageManager.getTopPanel().searchOnTopPanel(searchTerm);
    const numberOfResults = await pageManager.getSearchResults().extractNumberOfResults();
