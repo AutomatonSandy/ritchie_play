@@ -26,4 +26,14 @@ export class SearchResults{
         return firstResultTitle?.trim() || '';
     }   
 
+    public async clickOnTheFooterCookieButton(){
+        const footerCookieButton = 'I Understand';  
+        await this.page.getByText(footerCookieButton).click();
+    }
+
+    public async waitForReloadOfBidNow(){
+        const bidNowText = 'Bid now'
+        await this.page.getByText(bidNowText).first().waitFor();
+    }
+
 }
