@@ -1,6 +1,6 @@
 import { TestInfo } from '@playwright/test';
-import{test,expect}from '../fixtures/BeforeAndAfterTest';
-import {PageObjectManager} from '../pages/PageObjectManager';    
+import{test,expect}from '../../fixtures/BeforeAndAfterTest';
+import {PageObjectManager} from '../../pages/ritchie_page/PageObjectManager';    
 
 
 export async function searchAndCheckResults({page}, testInfo, searchTerm) {
