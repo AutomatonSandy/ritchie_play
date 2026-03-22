@@ -1,6 +1,5 @@
-import{test,expect}from '../fixtures/BeforeAndAfterTest';
+import{test,expect}from '../../fixtures/BeforeAndAfterTest.ts';
 import { searchAndCheckResults } from './baseTests.ts';
-import {PageObjectManager} from '../pages/PageObjectManager';    
 
 
 

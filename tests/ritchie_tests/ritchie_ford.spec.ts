@@ -1,6 +1,6 @@
-import{test,expect}from '../fixtures/BeforeAndAfterTest';
+import{test,expect}from '../../fixtures/BeforeAndAfterTest.ts';
 import { searchAndCheckResults, getNumberOfResults, getFirstResultTitle } from './baseTests.ts';
-import { PageObjectManager } from '../pages/PageObjectManager';
+import { PageObjectManager } from '../../pages/ritchie_page/PageObjectManager.ts';
 
 
 

@@ -1,9 +1,9 @@
 name: Smoke tests (firefox)
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master, sandy_branch ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main, master, sandy_branch ]
 jobs:
   test:
     timeout-minutes: 60
