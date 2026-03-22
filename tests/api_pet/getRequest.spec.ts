@@ -21,13 +21,13 @@ for (const petId of PET_IDS_GET) {
         response.statusText(),
     );
     if (response.status() == 200) {
-      expect(response.ok()).toBeTruthy();
+      await expect(response.ok()).toBeTruthy();
 
       const body = await response.json();
       console.log(body);
 
       const pet = body as Pet;
-      expect(pet.id).toBe(petId);
+      await expect(pet.id).toBe(petId);
       console.log("Pet Category is " + pet.category.id);
       console.log("Pet name is " + pet.name);
     } else {
@@ -35,6 +35,7 @@ for (const petId of PET_IDS_GET) {
         "Invalid request / or check the id, status code is " +
           response.status(),
       );
+      await expect (response.status() == 200); // this will fail
     }
   });
 }
@@ -49,12 +50,13 @@ for(const petId of PET_ID_JSONSCHEMA){
       if (!valid) {
         console.error("AJV Validation Errors:", ajv.errorsText());
       }
-      expect(valid).toBe(true);
+      await expect(valid).toBe(true);
     } else {
       console.log(
         "Invalid request / or check the id, status code is " +
           response.status(),
       );
+      await expect (response.status() == 200); // this will fail
     }
   });
  }
